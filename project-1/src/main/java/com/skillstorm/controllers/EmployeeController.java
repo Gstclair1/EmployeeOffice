@@ -1,8 +1,11 @@
 package com.skillstorm.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,6 +33,11 @@ public class EmployeeController {
 		return service.findAllEmployees();
 	}
 	
+	@GetMapping("/{id}")
+	public ResponseEntity<Employee> getEmployeeById(@PathVariable int id){
+		return service.getEmployeeById(id);
+	}
+	
 	
 	@PostMapping
 	public Employee addEmployee(@Valid @RequestBody Employee employee) {
@@ -41,5 +49,9 @@ public class EmployeeController {
 		return service.updateEmployee(employee);
 	}
 	
+	@DeleteMapping("/{id}")
+	public void deleteEmployee(@PathVariable int id) {
+		service.deleteEmployee(id);
+	}
 	
 }

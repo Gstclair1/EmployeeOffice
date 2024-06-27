@@ -1,6 +1,8 @@
 package com.skillstorm.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.skillstorm.models.Employee;
@@ -16,6 +18,15 @@ public class EmployeeService {
 		return repo.findAll();	
 	}
 	
+	public ResponseEntity<Employee> getEmployeeById(int id){
+		if(!repo.existsById(id)) {
+			return null;
+		}
+		return ResponseEntity.status(HttpStatus.OK)
+				.header("Message", "Successfully got an employee")
+				.body(repo.findById(id).get());
+	}
+	 
 	public Employee createEmployee(Employee emp) {
 		if(repo.existsById(emp.getEmployeeId())) {
 			return null;
@@ -30,4 +41,8 @@ public class EmployeeService {
 		return repo.save(emp);
 	}
 	
+	
+	public void deleteEmployee(int id) {
+		repo.deleteById(id);
+	}
 }
