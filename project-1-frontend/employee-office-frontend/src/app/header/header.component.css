@@ -1,0 +1,10 @@
+header{
+    background-color: darkslategray;
+    text-align: center;
+    font-size: 21px;
+}
+
+h1 {
+    color: silver;
+    padding: .35em 0em;
+}

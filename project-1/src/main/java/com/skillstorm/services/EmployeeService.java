@@ -41,6 +41,14 @@ public class EmployeeService {
 		return repo.save(emp);
 	}
 	
+	public ResponseEntity<Employee> updateEmployeeOffice(int employeeId, int officeId) {
+		if(!repo.existsById(employeeId)) {
+			return null;
+		}
+		repo.updateEmployeeOffice(employeeId, officeId);
+		return this.getEmployeeById(employeeId);
+		}
+	
 	
 	public void deleteEmployee(int id) {
 		repo.deleteById(id);

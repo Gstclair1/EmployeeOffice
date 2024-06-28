@@ -1,0 +1,11 @@
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: darkslategray;
+}
+
+footer h6{
+    text-align: center;
+    color:silver;
+}
