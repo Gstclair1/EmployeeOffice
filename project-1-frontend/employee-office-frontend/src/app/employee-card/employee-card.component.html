@@ -1,0 +1,8 @@
+
+<article>
+    <h3>{{ employee.employeeFirstName + " " + employee.employeeLastName }}</h3>
+    <h4>{{ employee.employeeJobTitle }}</h4>
+    @if (employee.office){
+    <p >Office: {{ employee.office.officeName }}</p>
+    }
+</article>

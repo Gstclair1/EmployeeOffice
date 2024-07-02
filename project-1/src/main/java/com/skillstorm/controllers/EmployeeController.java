@@ -50,9 +50,9 @@ public class EmployeeController {
 		return service.updateEmployee(employee);
 	}
 	
-	@PutMapping("/{id}")
-	public ResponseEntity<Employee> updateEmployeeOffice(@PathVariable int employeeId /**@RequestParam int officeId*/){
-		return service.updateEmployeeOffice(employeeId, 1);
+	@PutMapping("/{empId}/{offId}")
+	public ResponseEntity<Employee> updateEmployeeOffice(@PathVariable int empId, @PathVariable int offId){
+		return service.updateEmployeeOffice(empId, offId);
 	}
 	
 	@DeleteMapping("/{id}")

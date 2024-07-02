@@ -45,7 +45,7 @@ public class EmployeeService {
 		if(!repo.existsById(employeeId)) {
 			return null;
 		}
-		repo.updateEmployeeOffice(employeeId, officeId);
+		repo.updateEmployeeOffice(officeId, employeeId);
 		return this.getEmployeeById(employeeId);
 		}
 	
