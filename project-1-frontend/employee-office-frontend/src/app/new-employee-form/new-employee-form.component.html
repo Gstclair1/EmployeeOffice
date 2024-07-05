@@ -1,0 +1,29 @@
+
+<section class="forms">
+    <h2>Create Employee</h2>
+    <form >
+        <div class="formLine">
+        <label for="employeeFirstName">Employee First Name: </label>
+        <input type="text" id="employeeFirstName" name="employeeFirstName"
+        [(ngModel)]="formEmployee.employeeFirstName">
+    </div>
+    <div class="formLine">
+        <label for="employeeLastName">Employee Last Name: </label>
+        <input type="text" id="employeeLastName" name="employeeLastName"
+        [(ngModel)]="formEmployee.employeeLastName">
+    </div>
+    <div class="formLine">
+        <label for="employeeJobTitle">Employee Job Title: </label>
+        <input type="text" id="employeeJobTitle" name="employeeJobTitle"
+        [(ngModel)]="formEmployee.employeeJobTitle">
+    </div>
+
+        <button class="button" (click)="createEmployee()">Submit</button>
+    </form>
+    @if(failedToCreate){
+        <p><strong>ALERT: </strong>Employee Not Created</p>
+    }
+    @if(employeeCreated){
+        <p><strong>SUCCESS: </strong>Employee created, please edit employee to assign office</p>
+    }
+</section>

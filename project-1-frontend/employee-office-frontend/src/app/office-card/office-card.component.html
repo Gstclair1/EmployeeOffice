@@ -1,3 +1,21 @@
-<h2>{{ office.officeName }}</h2>
-<h3>{{ office.officeAddress }}</h3>
-<h3>{{ office.officeCapacity }}</h3>
+<article>
+    <h2>{{ office.officeName }}</h2>
+    <h3><strong>Address: </strong>{{ office.officeAddress }}</h3>
+    <h3><strong>Capacity: </strong>{{ office.employees.length + ' of '+ office.officeCapacity }}</h3>
+    @if(office.employees.length >0){
+        @if(employees.length == 0){
+        <button class="button" id="seeEmp" (click)="getEmployeesForOffice()">See Employees</button>
+        }@else{
+        <h5>Employees: </h5>
+        @for(emp of employees; track $index){
+            <p>{{ emp.employeeFirstName + ' ' + emp.employeeLastName }}</p>
+        }
+    }
+    }
+    @else{
+        <p>No employees at this office</p>
+    } 
+   
+    <button class="button" (click)="editOffice()">Edit Office</button>
+    <button class="button" (click)="deleteOffice()">Delete Office</button>
+</article>

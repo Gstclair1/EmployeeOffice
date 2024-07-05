@@ -1,6 +1,18 @@
 
 section{
     text-align: center;
-    background-color: aliceblue;
-    padding: .5em;
+    background-color: #0077b6;
+    padding: 1.5em;
+    width: 75%;
+    margin: 2em auto;
+    border-radius: 8px;
 }
+a:hover{
+    color: blue;
+}
+.cards{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+

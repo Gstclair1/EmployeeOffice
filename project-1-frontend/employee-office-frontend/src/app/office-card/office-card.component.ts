@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Office } from '../models/office';
+import { Router } from '@angular/router';
+import { Employee } from '../models/employee';
 
 @Component({
   selector: 'app-office-card',
@@ -10,5 +12,24 @@ import { Office } from '../models/office';
 })
 export class OfficeCardComponent {
 
-  @Input() office: Office = new Office(0, '','',0);
+  constructor(private router:Router){
+  }
+  
+
+  @Input() office: Office = new Office(0, '','',0,[]);
+  
+  employees: Employee[] = []
+  getEmployeesForOffice(){
+    this.employees = this.office.employees;
+  }
+
+  @Output() deleteOfficeEvent = new EventEmitter<number>();
+
+  editOffice(){
+    this.router.navigate(['office/'+ this.office.officeId])
+  }
+
+  deleteOffice(){
+    this.deleteOfficeEvent.emit(this.office.officeId);
+  }
 }

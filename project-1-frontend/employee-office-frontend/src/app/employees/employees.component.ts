@@ -8,11 +8,12 @@ import { EmployeeCardComponent } from '../employee-card/employee-card.component'
 import { Office } from '../models/office';
 import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-employees',
   standalone: true,
-  imports: [CommonModule, EmployeeCardComponent, EmployeeFormComponent, FormsModule],
+  imports: [CommonModule, EmployeeCardComponent, EmployeeFormComponent, FormsModule, RouterLink],
   templateUrl: './employees.component.html',
   styleUrl: './employees.component.css'
 })
@@ -35,17 +36,21 @@ export class EmployeesComponent {
       });
   }
 
-  formEmployee: Employee = new Employee(0, '','','', new Office(0, '','',0));
+  // formEmployee: Employee = new Employee(0, '','','', new Office(0, '','',0,[]));
 
-  createEmployee(){
-    this.httpService.createEmployee(this.formEmployee).subscribe(response => {
-      this.getAllEmployees();
-    });
-  }
+  // createEmployee(){
+  //   this.httpService.createEmployee(this.formEmployee).subscribe(response => {
+  //     this.getAllEmployees();
+  //   });
+  // }
 
  deleteEmployee(employeeId: number){
   this.httpService.deleteEmployee(employeeId).subscribe(response =>{
     this.getAllEmployees();
   })
+ }
+
+ processDeleteEvent(employeeId: number){
+  this.deleteEmployee(employeeId);
  }
 }

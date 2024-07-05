@@ -1,0 +1,14 @@
+.formLine {
+    display: block;
+    padding: .6em;
+}
+section {
+    text-align: center;
+}
+input {
+    border: solid 1px black;
+    font-size: 16px;
+    padding: 0.5em;
+}
+
+

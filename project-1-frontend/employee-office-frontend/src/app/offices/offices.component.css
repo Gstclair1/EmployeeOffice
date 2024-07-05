@@ -1,0 +1,18 @@
+section{
+    text-align: center;
+    background-color: #0077b6;
+    padding: 1.5em;
+    width: 75%;
+    margin: 2em auto;
+    border-radius: 8px;
+}
+
+
+@media only screen and (min-width: 1100px) {
+    #offices{
+        display: grid;
+       grid-template-columns: 1fr 1fr;
+      
+        
+    }
+  }

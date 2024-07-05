@@ -15,5 +15,9 @@ public interface EmployeeRepository extends CrudRepository<Employee, Integer>{
 
 	@Modifying
 	@Query(value="UPDATE employee SET office_id = ?1 WHERE employee_id = ?2", nativeQuery = true)
-	public void updateEmployeeOffice(/*@Param("office")*/ Integer officeId, /*@Param("employee_id")*/ Integer employee_id);
+	public void updateEmployeeOffice(Integer officeId,  Integer employee_id);
+	
+	@Query(value="SELECT COUNT(employee_id) FROM employee WHERE office_id = ?1", nativeQuery=true)
+	public int getOfficeEmployeeCount(Integer officeId);
+	
 }

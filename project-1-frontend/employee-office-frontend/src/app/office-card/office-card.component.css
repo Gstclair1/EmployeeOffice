@@ -1,0 +1,27 @@
+article{
+    background-color: #00b4d8;
+    color: #03045e;
+    border: solid 5px #03045e;
+    border-radius: 10px;
+    width: 75%;
+    margin: 2em auto;
+    padding: .5em;
+    padding-bottom: 3em;
+    
+  }
+  .button{
+    margin:.5em;
+  }
+  h2, h3, h5 {
+    margin: .25em
+  }
+  #seeEmp{
+    display: block;
+    margin: auto;
+  }
+  @media only screen and (min-width: 1100px) {
+    article{
+       height: 250px;
+        
+    }
+  }

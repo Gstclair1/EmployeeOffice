@@ -3,4 +3,39 @@
     margin: 0;
     padding: 0;
     border: 0;
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+html{
+    background-color: #03045e;
+}
+.button {
+    font: bold 16px Arial;
+    text-decoration: none;
+    padding: .2em .4em;
+    border: 3px solid #03045e;
+    border-radius: 8px;
+    background-color: #03045e;
+    color: #90e0ef;
+}
+.button:hover{
+    color: #caf0f8;
+    background-color: #00b4d8;
+    cursor: pointer;
+}
+.button:visited{
+    background-color: #03045e;
+    color: #90e0ef;
+}
+.forms{
+    background-color: #0077b6;
+    width: 75%;
+    margin: auto;
+    border-radius: 8px;
+    margin-top: 1.5em;
+    padding: 1em;
+    color: #03045e;
+}
+input{
+    background-color: #caf0f8;
+    color: #0077b6;
 }

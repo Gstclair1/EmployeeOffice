@@ -1,11 +1,12 @@
 nav{
-    
+    padding: .5em;
+    background-color: #0077b6;
 }
 nav a{
-    color: aqua;
+    color: #03045e;
     padding: .5em;
 }
 
 nav a:hover{
-    color: blueviolet;
+    color: #caf0f8;
 }

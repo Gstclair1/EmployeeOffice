@@ -1,0 +1,22 @@
+.formLine {
+    display: block;
+    padding: .6em;
+}
+section {
+    text-align: center;
+}
+input {
+    border: solid 1px black;
+    font-size: 16px;
+    padding: .5em;
+}
+
+label {
+    font-size: 16px;
+}
+#officeCapacity{
+    width: 35px;
+}
+#officeAddress{
+    width: 350px;
+}

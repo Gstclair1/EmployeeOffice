@@ -1,8 +1,10 @@
 
 <article>
-    <h3>{{ employee.employeeFirstName + " " + employee.employeeLastName }}</h3>
-    <h4>{{ employee.employeeJobTitle }}</h4>
+    <h3><strong>{{ employee.employeeFirstName + " " + employee.employeeLastName }}</strong></h3>
+    <h5>{{ employee.employeeJobTitle }}</h5>
     @if (employee.office){
     <p >Office: {{ employee.office.officeName }}</p>
     }
+    <button class="button" (click)="editEmployee()">Edit Employee</button>
+    <button class="button" (click)="deleteEmployee()">Delete Employee</button>
 </article>

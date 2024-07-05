@@ -2,10 +2,13 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
-    background-color: darkslategray;
+    background-color: #0077b6;
+    height: 30px;
+    border-top: solid 5px #03045e;
 }
 
 footer h6{
+    padding: .5em;
     text-align: center;
-    color:silver;
+    color:#03045e;
 }

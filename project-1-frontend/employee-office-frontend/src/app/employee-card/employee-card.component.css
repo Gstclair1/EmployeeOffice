@@ -1,0 +1,13 @@
+.button {
+    font: bold 10px Arial;
+    margin: .75em;
+  }
+  article{
+    background-color: #00b4d8;
+    color: #03045e;
+    border: solid 5px #03045e;
+    border-radius: 10px;
+    width: 215px;
+    margin: 2em 1em;
+    padding: .5em;
+  }

@@ -7,12 +7,16 @@ import org.springframework.stereotype.Service;
 
 import com.skillstorm.models.Employee;
 import com.skillstorm.repositories.EmployeeRepository;
+import com.skillstorm.repositories.OfficeRepository;
 
 @Service
 public class EmployeeService {
 
 	@Autowired
 	EmployeeRepository repo;
+	
+	@Autowired
+	OfficeRepository offRepo;
 	
 	public Iterable<Employee> findAllEmployees(){
 		return repo.findAll();	
@@ -44,6 +48,13 @@ public class EmployeeService {
 	public ResponseEntity<Employee> updateEmployeeOffice(int employeeId, int officeId) {
 		if(!repo.existsById(employeeId)) {
 			return null;
+		}
+
+		if(repo.getOfficeEmployeeCount(officeId) >= (offRepo.findById(officeId).get().getOfficeCapacity())) {
+			System.out.println("capacity reached");
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+					.header("Message", "Office Capacity Reached, cannot add Employee")
+					.body(repo.findById(employeeId).get());
 		}
 		repo.updateEmployeeOffice(officeId, employeeId);
 		return this.getEmployeeById(employeeId);

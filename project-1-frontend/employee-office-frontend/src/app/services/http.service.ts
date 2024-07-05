@@ -33,7 +33,14 @@ export class HttpService {
 
   //create
   createEmployee(employee: Employee): Observable<HttpResponse<any>>{
-    return this.http.post(this.url + 'employee', employee,{observe: 'response'});
+    return this.http.post(this.url + 'employee', 
+      {
+        employeeId: 0,
+        employeeFirstName: employee.employeeFirstName,
+        employeeLastName: employee.employeeLastName,
+        employeeJobTitle: employee.employeeJobTitle
+      },
+      {observe: 'response'});
   }
 
   createOffice(office: Office): Observable<HttpResponse<any>>{
@@ -46,11 +53,20 @@ export class HttpService {
   }
 
   updateOffice(office: Office): Observable<HttpResponse<any>>{
-    return this.http.put(this.url + 'office', office, {observe: 'response'});
+    return this.http.put(this.url + 'office', 
+      {
+        officeId: office.officeId,
+        officeName: office.officeName,
+        officeAddress: office.officeAddress,
+        officeCapacity: office.officeCapacity
+      }, 
+      {observe: 'response'});
   }
 
   //change employee's office
-  changeEmployeeOffice(){}
+  changeEmployeeOffice(employeeId: number, officeId: number): Observable<HttpResponse<any>>{
+    return this.http.put(this.url+ 'employee/' + employeeId +'/' +officeId, {}, {observe: 'response'});
+  }
 
   //delete
   deleteEmployee(employeeId: number): Observable<HttpResponse<any>>{

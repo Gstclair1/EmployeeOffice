@@ -1,2 +1,56 @@
+<section class="forms">
+    <h2 class="titles">Update Employee</h2>
+    <form>
+        <div class="formLine">
+            <label for="employeeFirstName">Employee First Name: </label>
+            <input type="text" id="employeeFirstName" name="employeeFirstName"
+                [(ngModel)]="updatedEmployee.employeeFirstName">
+        </div>
+        <div class="formLine">
+            <label for="employeeLastName">Employee Last Name: </label>
+            <input type="text" id="employeeLastName" name="employeeLastName"
+                [(ngModel)]="updatedEmployee.employeeLastName">
+        </div>
+        <div class="formLine">
+            <label for="employeeJobTitle">Employee Job Title: </label>
+            <input type="text" id="employeeJobTitle" name="employeeJobTitle"
+                [(ngModel)]="updatedEmployee.employeeJobTitle">
+        </div>
 
 
+
+
+
+
+        <button class="button" (click)="updateEmployee()">Submit</button>
+        @if(employeeUpdated){
+            <p><strong>SUCCESS: </strong>Employee Information Updated</p>
+        }
+        @if(failedToUpdate){
+            <p><strong>ALERT: </strong>Employee Not Updated! Please try again</p>
+        }
+    </form>
+
+</section>
+<section class="forms">
+    <h3 class="titles">Update Employee's Office</h3>
+    @if (employee.office){
+    <h5 class="titles">Current Office: {{ employee.office.officeName }}</h5>
+    }
+    <form>
+        <div class="formLine">
+            <label for="office">New Office: </label>
+            <select name="office" id="office" [(ngModel)]="newOffice" >
+                <option disable selected value="">---Select an office---</option>
+                <option *ngFor="let office of offices" [ngValue]="office">{{ office.officeName }}</option>
+            </select>
+        </div>
+        <button class="button" (click)="updateEmployeeOffice()">Submit</button>
+        @if(officeAtCapacity){
+        <p>Office is at capacity, must pick another</p>
+        }
+        @if(officeUpdated){
+            <p><strong>SUCCESS: </strong>Employee Assigned to New Office</p>
+        }
+    </form>
+</section>
